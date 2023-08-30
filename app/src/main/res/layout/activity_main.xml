@@ -8,11 +8,13 @@
     tools:context=".Presentation.MenuActivity">
 
     <LinearLayout
-        android:id="@+id/firstLl"
-        android:background="#21EA30"
+        android:id="@+id/mm_item_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/item_menu_1"
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="16dp"
@@ -21,27 +23,200 @@
 
         <TextView
             android:id="@+id/text1"
+            style="@style/TextMenuStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Kotlin Basic"
+            android:textColor="@color/black" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mm_item_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:padding="16dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@drawable/item_menu_2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mm_item_1"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/start_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"
+            android:text="Start"
+            android:textColor="@color/white"
+            style="@style/TextMenuStyle" />
+
+        <TextView
+            android:id="@+id/android_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="Android"
+            android:textColor="@color/white"
+            style="@style/TextMenuStyle" />
+
+        <TextView
+            android:id="@+id/basic_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="Basic"
+            android:textColor="@color/white"
+            style="@style/TextMenuStyle"/>
+
+        <TextView
+            android:id="@+id/development_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="Development"
+            android:textColor="@color/white"
+            style="@style/TextMenuStyle" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mm_item_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/item_menu_3"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mm_item_1">
+
+        <TextView
+            android:id="@+id/activity_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:gravity="center"
+            android:layout_marginBottom="20dp"
+            android:text="Activity"
+            android:textColor="@color/white"
+            style="@style/TextMenuStyle" />
+
+        <TextView
+            android:id="@+id/fragmen_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="Fragment"
+            android:textColor="@color/white"
+            style="@style/TextMenuStyle" />
+
+        <TextView
+            android:id="@+id/life_cycle_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="Life Cycle"
+            android:textColor="@color/white"
+            style="@style/TextMenuStyle"/>
+
+        <TextView
+            android:id="@+id/interface_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="Interface"
+            android:textColor="@color/white"
+            style="@style/TextMenuStyle" />
+
+        <TextView
+            android:id="@+id/libraries_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="Libraries"
+            android:textColor="@color/white"
+            style="@style/TextMenuStyle" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mm_item_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:padding="16dp"
+        android:background="@drawable/item_menu_4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mm_item_3"
+        app:layout_constraintTop_toBottomOf="@+id/mm_item_2"
+     >
+        <TextView
+            android:id="@+id/threads_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
             android:textColor="@color/black"
-            android:textStyle="bold"
-            android:text="Kotlin Basic"
-            android:textSize="24dp" />
+            android:text="Threads"
+            style="@style/TextMenuStyle"
+            />
 
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/secondLl"
+        android:id="@+id/mm_item_5"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/item_menu_5"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/mm_item_4"
+        app:layout_constraintStart_toStartOf="@+id/mm_item_3"
+        app:layout_constraintTop_toBottomOf="@+id/mm_item_4">
 
-
+        <TextView
+            android:id="@+id/algorithm_txt"
+            style="@style/TextMenuStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Algorithm"
+            android:textColor="@color/white" />
 
 
     </LinearLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
