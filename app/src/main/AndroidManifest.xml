@@ -12,7 +12,7 @@
         android:theme="@style/Theme.LearnAndroidApp"
         tools:targetApi="31">
         <activity
-            android:name=".CardLearnActivity"
+            android:name=".Presentation.CardLearnActivity"
             android:exported="false" />
         <activity
             android:name=".Presentation.MenuActivity"
