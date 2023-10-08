@@ -5,7 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import kan.kis.learnAndroidApp.Presentation.CardFragment.Companion.EXTRA_KEY_FIRST_CART
+import kan.kis.learnAndroidApp.Presentation.KotlinBasic.Companion.EXTRA_KEY_FIRST_CART
 import kan.kis.learnAndroidApp.Presentation.ThreadsCardFragment.Companion.EXTRA_KEY_2_CART
 import kan.kis.learnAndroidApp.R
 
@@ -26,7 +26,7 @@ class CardLearnActivity : AppCompatActivity() {
         val thisIntent = intent.getStringExtra(KEY_OPEN)
         when(thisIntent) {
             EXTRA_KEY_FIRST_CART -> {
-                openFragment(CardFragment())
+                openFragment(KotlinBasic())
             }
 
             EXTRA_KEY_2_CART -> {
