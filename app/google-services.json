@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "391732273680",
+    "project_id": "learnandroidapp-851f6",
+    "storage_bucket": "learnandroidapp-851f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:391732273680:android:bd2cf22256109a794f6095",
+        "android_client_info": {
+          "package_name": "kan.kis.learnAndroidApp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD12-SDkPkDxPafFlXHJIbyxnZR0m17cW8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,6 +1,7 @@
 package kan.kis.learnAndroidApp.Presentation.Adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.ListAdapter
@@ -26,7 +27,11 @@ class CardAdapter: ListAdapter<CardItem, CardViewHolder>(CardDiffCallBack()) {
         val itemThis = getItem(position)
         holder.itemView.animation = AnimationUtils.loadAnimation(holder.itemView.context,
         R.anim.recycle_view_one)
-        holder.title.text = itemThis.title
+        if (itemThis.title == "") {
+            holder.title.visibility = View.GONE
+        } else {
+            holder.title.text = itemThis.title
+        }
         holder.bodyText.text = itemThis.inside
     }
 
