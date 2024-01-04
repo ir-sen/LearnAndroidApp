@@ -1,12 +1,9 @@
-package kan.kis.learnAndroidApp.Presentation
+package kan.kis.learnAndroidApp.Presentation.frgments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import kan.kis.learnAndroidApp.R
 
