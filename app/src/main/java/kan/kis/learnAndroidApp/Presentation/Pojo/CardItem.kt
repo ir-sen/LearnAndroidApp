@@ -5,7 +5,7 @@ data class CardItem(
     val type: TypeItem,
     val inside: String,
     val title: String
-)
+): java.io.Serializable
 
 
 enum class TypeItem {

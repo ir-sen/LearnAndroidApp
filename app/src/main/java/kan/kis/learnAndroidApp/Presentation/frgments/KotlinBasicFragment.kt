@@ -12,7 +12,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.database.DatabaseReference
 import kan.kis.learnAndroidApp.Presentation.Adapters.CardDiffCallBack
 import kan.kis.learnAndroidApp.Presentation.Adapters.CardViewHolder
 import kan.kis.learnAndroidApp.Presentation.Pojo.CardItem
@@ -25,9 +24,6 @@ class KotlinBasicFragment: Fragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapterThis: ListAdapter<CardItem, CardViewHolder>
-
-
-    private lateinit var database: DatabaseReference
 
 
     lateinit var viewModel: KotlinBasicViewModel
@@ -57,11 +53,17 @@ class KotlinBasicFragment: Fragment() {
 
             override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
                 val itemThis = getItem(position)
+
+                // add argument
+                val argumentFragment = Bundle()
+                argumentFragment.putSerializable(KEY_ARGS, itemThis)
                 // recycle item listener
                 holder.itemView.setOnClickListener {
                     Log.d(TAG, "this is clicked item ${itemThis.title}")
-                    openFragment(FullExpFragment())
+                    // this is open fragment
+                    openFragment(FullExpFragment(), argumentFragment)
                 }
+
                 // add animation to recycle view
                 holder.itemView.animation = AnimationUtils.loadAnimation(holder.itemView.context,
                     R.anim.recycle_view_one)
@@ -93,8 +95,6 @@ class KotlinBasicFragment: Fragment() {
             adapterThis.submitList(it)
         }
 
-//        checkFirebaseDataBase(listRv)
-//        adapterThis.submitList(listRv)
         Log.d(TAG, "lifecycle: onCreateView")
         return view
     }
@@ -108,9 +108,10 @@ class KotlinBasicFragment: Fragment() {
         viewModel.checkFirebaseDataBase(listRv)
     }
 
-
-    private fun openFragment(fragment: Fragment) {
+    // put argument and open fragment
+    private fun openFragment(fragment: Fragment, args: Bundle) {
         val transactionFragment = requireActivity().supportFragmentManager.beginTransaction()
+        fragment.arguments = args
         transactionFragment.replace(R.id.fragment_card_container, fragment)
         transactionFragment.addToBackStack("add1")
         transactionFragment.commit()
@@ -118,5 +119,7 @@ class KotlinBasicFragment: Fragment() {
 
     companion object {
         val EXTRA_KEY_FIRST_CART = "CardFragmentKeyExtra"
+
+        val KEY_ARGS = "KeyArgs"
     }
 }
