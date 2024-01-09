@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">LearnAndroidApp</string>
+
+    <string name="test_tv">"Kotlin is a statically typed, cross-platform,
+        modern programming language that was developed by JetBrains the company known
+        for creating popular integrated development environments (IDEs) like IntelliJ IDEA.
+        Kotlin was officially announced as a new language for the Java Virtual Machine
+        (JVM) in 2011 and later made open source. Since then, it has gained significant popularity in the software development community, especially in Android app development, but it can also be used for server-side development, web applications, and more. "Kotlin"</string>
+
 </resources>
