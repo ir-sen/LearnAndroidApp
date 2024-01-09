@@ -57,7 +57,7 @@ class StartAndroidFragment: Fragment() {
                 argumentFragment.putSerializable(KEY_ARGS, itemThis)
 
                 holder.itemView.setOnClickListener {
-
+                    openFragment(FullExpFragment(), argumentFragment)
                 }
                 // add animation to recycle view
                 holder.itemView.animation = AnimationUtils.loadAnimation(holder.itemView.context,
@@ -83,6 +83,15 @@ class StartAndroidFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+    }
+
+
+    private fun openFragment(fragment: Fragment, args: Bundle) {
+        val transactionFragment = requireActivity().supportFragmentManager.beginTransaction()
+        fragment.arguments = args
+        transactionFragment.replace(R.id.fragment_card_container, fragment)
+        transactionFragment.addToBackStack("add2")
+        transactionFragment.commit()
     }
 
 
