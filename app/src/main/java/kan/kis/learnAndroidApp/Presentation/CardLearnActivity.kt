@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import kan.kis.learnAndroidApp.Presentation.frgments.ActivFragMenuFragment
 import kan.kis.learnAndroidApp.Presentation.frgments.KotlinBasicFragment
 import kan.kis.learnAndroidApp.Presentation.frgments.KotlinBasicFragment.Companion.EXTRA_KEY_FIRST_CART
 import kan.kis.learnAndroidApp.Presentation.frgments.StartAndroidFragment
@@ -35,6 +36,11 @@ class CardLearnActivity : AppCompatActivity() {
             EXTRA_KEY_2_CART -> {
                 openFragment(StartAndroidFragment())
             }
+
+            ActivFragMenuFragment.EXTRA_ACT_FG_M_KEY -> {
+                openFragment(ActivFragMenuFragment())
+            }
+
         }
     }
     private fun openFragment(fragment: Fragment) {
