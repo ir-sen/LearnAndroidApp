@@ -5,15 +5,15 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import kan.kis.learnAndroidApp.Presentation.frgments.ActivFragMenuFragment
-import kan.kis.learnAndroidApp.Presentation.frgments.KotlinBasicFragment
+import kan.kis.learnAndroidApp.Presentation.frgments.*
+import kan.kis.learnAndroidApp.Presentation.frgments.ActivQuestionFragment.Companion.EXTRA_ACTIV_QUESTION
 import kan.kis.learnAndroidApp.Presentation.frgments.KotlinBasicFragment.Companion.EXTRA_KEY_FIRST_CART
-import kan.kis.learnAndroidApp.Presentation.frgments.StartAndroidFragment
-import kan.kis.learnAndroidApp.Presentation.frgments.ThreadsCardFragment
 import kan.kis.learnAndroidApp.Presentation.frgments.ThreadsCardFragment.Companion.EXTRA_KEY_2_CART
 import kan.kis.learnAndroidApp.R
 
 class CardLearnActivity : AppCompatActivity() {
+
+    // activity for open fragments
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +40,11 @@ class CardLearnActivity : AppCompatActivity() {
             ActivFragMenuFragment.EXTRA_ACT_FG_M_KEY -> {
                 openFragment(ActivFragMenuFragment())
             }
+
+            EXTRA_ACTIV_QUESTION -> {
+                openFragment(ActivQuestionFragment())
+            }
+
 
         }
     }

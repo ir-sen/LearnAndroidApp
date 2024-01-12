@@ -18,7 +18,6 @@ import kan.kis.learnAndroidApp.databinding.ActivityMainBinding
 class MenuActivity : AppCompatActivity() {
 
 
-
     lateinit var binding: ActivityMainBinding
 
     lateinit var adapterCard: CardAdapter
