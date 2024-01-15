@@ -9,12 +9,14 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import kan.kis.learnAndroidApp.Presentation.CardLearnActivity
 import kan.kis.learnAndroidApp.Presentation.frgments.ActivQuestionFragment.Companion.EXTRA_ACTIV_QUESTION
+import kan.kis.learnAndroidApp.Presentation.frgments.FragmentQuestionFragment.Companion.EXTRA_FRAG_QUESTION
 import kan.kis.learnAndroidApp.R
 
 class ActivFragMenuFragment: Fragment() {
 
 
     lateinit var activityQuestion: TextView
+    lateinit var fragmentQuestion: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,11 +39,18 @@ class ActivFragMenuFragment: Fragment() {
         activityQuestion.setOnClickListener {
             startActivity(CardLearnActivity().newIntent(requireContext(), EXTRA_ACTIV_QUESTION))
         }
+        fragmentQuestion.setOnClickListener {
+            startActivity(CardLearnActivity().newIntent(requireContext(), EXTRA_FRAG_QUESTION))
+        }
+
+
     }
 
     private fun initTools() {
         if (activity != null) {
             activityQuestion = requireActivity().findViewById(R.id.activityQuestionTv)
+            fragmentQuestion = requireActivity().findViewById(R.id.fragmentQuestionTv)
+
 
         }
     }
