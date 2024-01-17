@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import kan.kis.learnAndroidApp.Presentation.CardLearnActivity
 import kan.kis.learnAndroidApp.Presentation.frgments.ActivQuestionFragment.Companion.EXTRA_ACTIV_QUESTION
 import kan.kis.learnAndroidApp.Presentation.frgments.FragmentQuestionFragment.Companion.EXTRA_FRAG_QUESTION
+import kan.kis.learnAndroidApp.Presentation.frgments.LibrariesFragment.Companion.EXTRA_LIBRARIES
 import kan.kis.learnAndroidApp.R
 
 class ActivFragMenuFragment: Fragment() {
@@ -17,6 +18,7 @@ class ActivFragMenuFragment: Fragment() {
 
     lateinit var activityQuestion: TextView
     lateinit var fragmentQuestion: TextView
+    lateinit var libraries: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -43,6 +45,12 @@ class ActivFragMenuFragment: Fragment() {
             startActivity(CardLearnActivity().newIntent(requireContext(), EXTRA_FRAG_QUESTION))
         }
 
+        libraries.setOnClickListener {
+            startActivity(CardLearnActivity().newIntent(requireContext(), EXTRA_LIBRARIES))
+        }
+
+
+
 
     }
 
@@ -50,7 +58,7 @@ class ActivFragMenuFragment: Fragment() {
         if (activity != null) {
             activityQuestion = requireActivity().findViewById(R.id.activityQuestionTv)
             fragmentQuestion = requireActivity().findViewById(R.id.fragmentQuestionTv)
-
+            libraries = requireActivity().findViewById(R.id.librariesTv)
 
         }
     }

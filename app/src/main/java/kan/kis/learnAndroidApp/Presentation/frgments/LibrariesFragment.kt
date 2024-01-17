@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -15,18 +16,19 @@ import androidx.recyclerview.widget.RecyclerView
 import kan.kis.learnAndroidApp.Presentation.Adapters.CardDiffCallBack
 import kan.kis.learnAndroidApp.Presentation.Adapters.CardViewHolder
 import kan.kis.learnAndroidApp.Presentation.Pojo.CardItem
-import kan.kis.learnAndroidApp.Presentation.viewModels.FragmentQuestionViewModel
+import kan.kis.learnAndroidApp.Presentation.viewModels.LibrariesFragmentViewModel
 import kan.kis.learnAndroidApp.R
 
-class FragmentQuestionFragment: Fragment() {
+class LibrariesFragment: Fragment() {
 
     lateinit var textMain: TextView
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var adapterThis: ListAdapter<CardItem, CardViewHolder>
 
+    private lateinit var titleTv: TextView
 
-    lateinit var viewModel: FragmentQuestionViewModel
+    lateinit var viewModel: LibrariesFragmentViewModel
 
     lateinit var listRv: MutableList<CardItem>
 
@@ -39,7 +41,7 @@ class FragmentQuestionFragment: Fragment() {
     ): View? {
 
         //create and add recycle view to fragment
-        val view = inflater.inflate(R.layout.fragment_question_framgnet, container, false)
+        val view = inflater.inflate(R.layout.libraries_fragment, container, false)
         recyclerView = view.findViewById(R.id.info_rv)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
@@ -73,11 +75,21 @@ class FragmentQuestionFragment: Fragment() {
             }
         }
         recyclerView.adapter = adapterThis
+        // заглушка
+//        listRv = mutableListOf<CardItem>(CardItem(12, TypeItem.HEADER,
+//            "Kotlin is a statically typed, cross-platform," +
+//                    " modern programming language that was developed by JetBrains," +
+//                    " the company known for creating popular integrated development environments (IDEs)" +
+//                    " like IntelliJ IDEA. Kotlin was officially announced as a new language " +
+//                    "for the Java Virtual Machine (JVM) in 2011 and later made open source." +
+//                    " Since then, it has gained significant popularity in the software development" +
+//                    " community, especially in Android app development," +
+//                    " but it can also be used for server-side development, web applications, and more.", "Kotlin"))
 
         listRv = mutableListOf()
 
         // init viewModel
-        viewModel = ViewModelProvider(this)[FragmentQuestionViewModel::class.java]
+        viewModel = ViewModelProvider(this)[LibrariesFragmentViewModel::class.java]
         viewModel.checkFirebaseDataBase(listRv)
 
         viewModel.firebaseDataBase.observe(viewLifecycleOwner) {
@@ -93,9 +105,11 @@ class FragmentQuestionFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         textMain = requireActivity().findViewById(R.id.titleTv)
-        Log.d(TAG, "lifecycle: onViewCreated")
 //        initRecycle()
+        textMain.text = "Libraries"
 //        viewModel.checkFirebaseDataBase(listRv)
+        Toast.makeText(requireContext(), "This is true", Toast.LENGTH_SHORT).show()
+        
     }
 
     // put argument and open fragment
@@ -103,13 +117,13 @@ class FragmentQuestionFragment: Fragment() {
         val transactionFragment = requireActivity().supportFragmentManager.beginTransaction()
         fragment.arguments = args
         transactionFragment.replace(R.id.fragment_card_container, fragment)
-        transactionFragment.addToBackStack("add6")
+        transactionFragment.addToBackStack("addlib")
         transactionFragment.commit()
     }
 
     companion object {
-        const val EXTRA_FRAG_QUESTION = "FragmentQuestions"
+        const val EXTRA_LIBRARIES = "Libraries"
 
-        val KEY_ARGS = "KeyArgs"
+        const val KEY_ARGS = "KeyArgs"
     }
 }

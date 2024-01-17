@@ -39,7 +39,7 @@ class ActivQuestionFragment: Fragment() {
     ): View? {
 
         //create and add recycle view to fragment
-        val view = inflater.inflate(R.layout.activity_question_framgnet, container, false)
+        val view = inflater.inflate(R.layout.activtiy_question_framgnet, container, false)
         recyclerView = view.findViewById(R.id.info_rv)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
@@ -73,23 +73,13 @@ class ActivQuestionFragment: Fragment() {
             }
         }
         recyclerView.adapter = adapterThis
-        // заглушка
-//        listRv = mutableListOf<CardItem>(CardItem(12, TypeItem.HEADER,
-//            "Kotlin is a statically typed, cross-platform," +
-//                    " modern programming language that was developed by JetBrains," +
-//                    " the company known for creating popular integrated development environments (IDEs)" +
-//                    " like IntelliJ IDEA. Kotlin was officially announced as a new language " +
-//                    "for the Java Virtual Machine (JVM) in 2011 and later made open source." +
-//                    " Since then, it has gained significant popularity in the software development" +
-//                    " community, especially in Android app development," +
-//                    " but it can also be used for server-side development, web applications, and more.", "Kotlin"))
 
         listRv = mutableListOf()
 
         // init viewModel
         viewModel = ViewModelProvider(this)[ActivityQuestionFragmentViewModel::class.java]
         viewModel.checkFirebaseDataBase(listRv)
-
+        // listener firebase data
         viewModel.firebaseDataBase.observe(viewLifecycleOwner) {
             Log.d("Justlkjioej", "LifeCycle answer: $it")
             adapterThis.submitList(it)
@@ -102,10 +92,8 @@ class ActivQuestionFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        textMain = requireActivity().findViewById(R.id.textView)
+        textMain = requireActivity().findViewById(R.id.titleTv)
         Log.d(TAG, "lifecycle: onViewCreated")
-//        initRecycle()
-        viewModel.checkFirebaseDataBase(listRv)
     }
 
     // put argument and open fragment
@@ -113,13 +101,13 @@ class ActivQuestionFragment: Fragment() {
         val transactionFragment = requireActivity().supportFragmentManager.beginTransaction()
         fragment.arguments = args
         transactionFragment.replace(R.id.fragment_card_container, fragment)
-        transactionFragment.addToBackStack("add1")
+        transactionFragment.addToBackStack("ActivQuestionFragment")
         transactionFragment.commit()
     }
 
-    companion object {
-        val EXTRA_ACTIV_QUESTION = "ActivityQuestions"
 
-        val KEY_ARGS = "KeyArgs"
+    companion object {
+        const val EXTRA_ACTIV_QUESTION = "ActivityQuestions"
+        const val KEY_ARGS = "KeyArgs"
     }
 }

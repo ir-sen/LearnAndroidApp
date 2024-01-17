@@ -9,6 +9,7 @@ import kan.kis.learnAndroidApp.Presentation.frgments.*
 import kan.kis.learnAndroidApp.Presentation.frgments.ActivQuestionFragment.Companion.EXTRA_ACTIV_QUESTION
 import kan.kis.learnAndroidApp.Presentation.frgments.FragmentQuestionFragment.Companion.EXTRA_FRAG_QUESTION
 import kan.kis.learnAndroidApp.Presentation.frgments.KotlinBasicFragment.Companion.EXTRA_KEY_FIRST_CART
+import kan.kis.learnAndroidApp.Presentation.frgments.LibrariesFragment.Companion.EXTRA_LIBRARIES
 import kan.kis.learnAndroidApp.Presentation.frgments.ThreadsCardFragment.Companion.EXTRA_KEY_2_CART
 import kan.kis.learnAndroidApp.R
 
@@ -48,6 +49,10 @@ class CardLearnActivity : AppCompatActivity() {
 
            EXTRA_FRAG_QUESTION -> {
                 openFragment(FragmentQuestionFragment())
+            }
+
+            EXTRA_LIBRARIES -> {
+                openFragment(LibrariesFragment())
             }
 
 

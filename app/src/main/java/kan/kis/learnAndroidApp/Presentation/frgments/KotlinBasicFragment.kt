@@ -102,10 +102,10 @@ class KotlinBasicFragment: Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        textMain = requireActivity().findViewById(R.id.textView)
+        textMain = requireActivity().findViewById(R.id.titleTv)
         Log.d(TAG, "lifecycle: onViewCreated")
 //        initRecycle()
-        viewModel.checkFirebaseDataBase(listRv)
+//        viewModel.checkFirebaseDataBase(listRv)
     }
 
     // put argument and open fragment
