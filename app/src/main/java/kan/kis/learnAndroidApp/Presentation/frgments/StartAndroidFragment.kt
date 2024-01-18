@@ -95,4 +95,9 @@ class StartAndroidFragment: Fragment() {
     }
 
 
+
+    companion object {
+        const val EXTRA_START_ANDROID = "extraStartAndroid"
+    }
+
 }

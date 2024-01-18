@@ -12,7 +12,8 @@ import com.google.firebase.ktx.Firebase
 import kan.kis.learnAndroidApp.Presentation.Adapters.CardAdapter
 import kan.kis.learnAndroidApp.Presentation.frgments.ActivFragMenuFragment.Companion.EXTRA_ACT_FG_M_KEY
 import kan.kis.learnAndroidApp.Presentation.frgments.KotlinBasicFragment.Companion.EXTRA_KEY_FIRST_CART
-import kan.kis.learnAndroidApp.Presentation.frgments.ThreadsCardFragment.Companion.EXTRA_KEY_2_CART
+import kan.kis.learnAndroidApp.Presentation.frgments.StartAndroidFragment.Companion.EXTRA_START_ANDROID
+import kan.kis.learnAndroidApp.Presentation.frgments.ThreadsCardFragment.Companion.EXTRA_THREAD
 import kan.kis.learnAndroidApp.databinding.ActivityMainBinding
 
 class MenuActivity : AppCompatActivity() {
@@ -82,12 +83,18 @@ class MenuActivity : AppCompatActivity() {
         }
 
         binding.mmItem2.setOnClickListener {
-            startActivity(CardLearnActivity().newIntent(this, EXTRA_KEY_2_CART))
+            startActivity(CardLearnActivity().newIntent(this, EXTRA_START_ANDROID))
         }
 
         binding.mmItem3.setOnClickListener {
             startActivity(CardLearnActivity().newIntent(this, EXTRA_ACT_FG_M_KEY))
         }
+
+        binding.mmItem4.setOnClickListener {
+            startActivity(CardLearnActivity().newIntent(this, EXTRA_THREAD))
+        }
+
+
 
 
 

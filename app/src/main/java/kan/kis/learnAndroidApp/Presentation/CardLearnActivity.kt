@@ -10,7 +10,8 @@ import kan.kis.learnAndroidApp.Presentation.frgments.ActivQuestionFragment.Compa
 import kan.kis.learnAndroidApp.Presentation.frgments.FragmentQuestionFragment.Companion.EXTRA_FRAG_QUESTION
 import kan.kis.learnAndroidApp.Presentation.frgments.KotlinBasicFragment.Companion.EXTRA_KEY_FIRST_CART
 import kan.kis.learnAndroidApp.Presentation.frgments.LibrariesFragment.Companion.EXTRA_LIBRARIES
-import kan.kis.learnAndroidApp.Presentation.frgments.ThreadsCardFragment.Companion.EXTRA_KEY_2_CART
+import kan.kis.learnAndroidApp.Presentation.frgments.StartAndroidFragment.Companion.EXTRA_START_ANDROID
+import kan.kis.learnAndroidApp.Presentation.frgments.ThreadsCardFragment.Companion.EXTRA_THREAD
 import kan.kis.learnAndroidApp.R
 
 class CardLearnActivity : AppCompatActivity() {
@@ -30,12 +31,13 @@ class CardLearnActivity : AppCompatActivity() {
 
     private fun checkIntents() {
         val thisIntent = intent.getStringExtra(KEY_OPEN)
-        when(thisIntent) {
+        when (thisIntent) {
+
             EXTRA_KEY_FIRST_CART -> {
                 openFragment(KotlinBasicFragment())
             }
 
-            EXTRA_KEY_2_CART -> {
+            EXTRA_START_ANDROID -> {
                 openFragment(StartAndroidFragment())
             }
 
@@ -47,7 +49,7 @@ class CardLearnActivity : AppCompatActivity() {
                 openFragment(ActivQuestionFragment())
             }
 
-           EXTRA_FRAG_QUESTION -> {
+            EXTRA_FRAG_QUESTION -> {
                 openFragment(FragmentQuestionFragment())
             }
 
@@ -55,14 +57,19 @@ class CardLearnActivity : AppCompatActivity() {
                 openFragment(LibrariesFragment())
             }
 
+            EXTRA_THREAD -> {
+                openFragment(ThreadsCardFragment())
+            }
+
 
         }
     }
+
     private fun openFragment(fragment: Fragment) {
         val transactionFragment = supportFragmentManager.beginTransaction()
-            transactionFragment.replace(R.id.fragment_card_container, fragment)
-            transactionFragment.disallowAddToBackStack()
-            transactionFragment.commit()
+        transactionFragment.replace(R.id.fragment_card_container, fragment)
+        transactionFragment.disallowAddToBackStack()
+        transactionFragment.commit()
     }
 
     fun newIntent(context: Context, keyOpen: String): Intent {
