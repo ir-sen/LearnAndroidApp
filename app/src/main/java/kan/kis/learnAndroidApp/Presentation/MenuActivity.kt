@@ -39,6 +39,8 @@ class MenuActivity : AppCompatActivity() {
 
     }
 
+
+
     // get info from firebase
     private fun checkFirebaseDataBase() {
         database = Firebase.database.reference
