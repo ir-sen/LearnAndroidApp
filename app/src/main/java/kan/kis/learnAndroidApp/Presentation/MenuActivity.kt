@@ -2,6 +2,9 @@ package kan.kis.learnAndroidApp.Presentation
 
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
+import android.view.WindowManager
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -14,6 +17,7 @@ import kan.kis.learnAndroidApp.Presentation.frgments.ActivFragMenuFragment.Compa
 import kan.kis.learnAndroidApp.Presentation.frgments.KotlinBasicFragment.Companion.EXTRA_KEY_FIRST_CART
 import kan.kis.learnAndroidApp.Presentation.frgments.StartAndroidFragment.Companion.EXTRA_START_ANDROID
 import kan.kis.learnAndroidApp.Presentation.frgments.ThreadsCardFragment.Companion.EXTRA_THREAD
+import kan.kis.learnAndroidApp.R
 import kan.kis.learnAndroidApp.databinding.ActivityMainBinding
 
 class MenuActivity : AppCompatActivity() {
@@ -26,6 +30,8 @@ class MenuActivity : AppCompatActivity() {
     private val TAG = "MenuActivityTAG"
 
     private lateinit var database: DatabaseReference
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -96,11 +102,32 @@ class MenuActivity : AppCompatActivity() {
             startActivity(CardLearnActivity().newIntent(this, EXTRA_THREAD))
         }
 
+        // algorithm click listeners
+        binding.mmItem5.setOnClickListener {
+            comingSoonAlert()
+        }
 
 
 
+    }
 
-//        binding.mmItem4.setOnClickListener().
+    private fun comingSoonAlert() {
+        val alertComingSoon: AlertDialog
+        val builder = AlertDialog.Builder(this)
+        val inflater = LayoutInflater.from(this)
+        val dialogView = inflater.inflate(R.layout.coming_soon_alert_, null)
+
+        val width = WindowManager.LayoutParams.MATCH_PARENT // Specify a fixed width in pixels
+        val height = 300 // Specify a fixed height in pixels
+        dialogView.minimumWidth = width
+        dialogView.minimumHeight = height
+
+        builder.setView(dialogView)
+        alertComingSoon = builder.create()
+        alertComingSoon.show()
+
+
+
     }
 
 }

@@ -63,7 +63,6 @@ class ThreadsCardFragment: Fragment() {
                 argumentFragment.putSerializable(KEY_ARGS, itemThis)
                 // recycle item listener
                 holder.itemView.setOnClickListener {
-                    Log.d(TAG, "this is clicked item ${itemThis.title}")
                     // this is open fragment
                     openFragment(FullExpFragment(), argumentFragment)
                 }
@@ -85,11 +84,10 @@ class ThreadsCardFragment: Fragment() {
         viewModel.checkFirebaseDataBase(listRv)
 
         viewModel.firebaseDataBase.observe(viewLifecycleOwner) {
-            Log.d("Justlkjioej", "LifeCycle answer: $it")
             adapterThis.submitList(it)
         }
 
-        Log.d(TAG, "lifecycle: onCreateView")
+
         return view
     }
 
@@ -97,8 +95,6 @@ class ThreadsCardFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         textMain = requireActivity().findViewById(R.id.titleTv)
-
-        Toast.makeText(requireContext(), "LOL", Toast.LENGTH_SHORT).show()
 
     }
 

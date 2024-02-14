@@ -4,7 +4,9 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import kan.kis.learnAndroidApp.Presentation.frgments.*
 import kan.kis.learnAndroidApp.Presentation.frgments.ActivQuestionFragment.Companion.EXTRA_ACTIV_QUESTION
 import kan.kis.learnAndroidApp.Presentation.frgments.FragmentQuestionFragment.Companion.EXTRA_FRAG_QUESTION
@@ -67,6 +69,8 @@ class CardLearnActivity : AppCompatActivity() {
 
     private fun openFragment(fragment: Fragment) {
         val transactionFragment = supportFragmentManager.beginTransaction()
+//        transactionFragment.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+        transactionFragment.setCustomAnimations(R.anim.slide_in_upp, R.anim.slide_out_upp, R.anim.slide_in_upp, R.anim.slide_out_upp,)
         transactionFragment.replace(R.id.fragment_card_container, fragment)
         transactionFragment.disallowAddToBackStack()
         transactionFragment.commit()

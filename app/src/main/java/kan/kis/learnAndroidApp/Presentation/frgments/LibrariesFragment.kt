@@ -107,9 +107,7 @@ class LibrariesFragment: Fragment() {
         textMain = requireActivity().findViewById(R.id.titleTv)
 //        initRecycle()
         textMain.text = "Libraries"
-//        viewModel.checkFirebaseDataBase(listRv)
-        Toast.makeText(requireContext(), "This is true", Toast.LENGTH_SHORT).show()
-        
+
     }
 
     // put argument and open fragment

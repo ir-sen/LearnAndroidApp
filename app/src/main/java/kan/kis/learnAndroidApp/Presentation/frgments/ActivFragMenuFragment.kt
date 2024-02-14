@@ -33,7 +33,6 @@ class ActivFragMenuFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initTools()
         initListeners()
-        Toast.makeText(requireContext(), "This is require menu", Toast.LENGTH_SHORT).show()
     }
 
 
