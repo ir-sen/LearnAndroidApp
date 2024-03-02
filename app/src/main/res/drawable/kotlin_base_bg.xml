@@ -1,0 +1,41 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="164dp"
+    android:height="151dp"
+    android:viewportWidth="164"
+    android:viewportHeight="151">
+
+  <!-- Тень -->
+  <group
+      android:translateX="3"
+      android:translateY="3">
+    <path
+        android:pathData="M20,0L144,0A16,16 0,0 1,160 16L160,127A16,16 0,0 1,144 143L20,143A16,16 0,0 1,4 127L4,16A16,16 0,0 1,20 0z"
+        android:fillColor="#B9FEFEFE"/>
+  </group>
+
+  <!-- Основной контур -->
+  <path
+      android:pathData="M20,0L144,0A16,16 0,0 1,160 16L160,127A16,16 0,0 1,144 143L20,143A16,16 0,0 1,4 127L4,16A16,16 0,0 1,20 0z"
+      android:fillColor="#21EA30"/>
+
+  <!-- Линия контура -->
+  <path
+      android:pathData="M20,1L144,1A15,15 0,0 1,159 16L159,127A15,15 0,0 1,144 142L20,142A15,15 0,0 1,5 127L5,16A15,15 0,0 1,20 1z"
+      android:strokeWidth="2"
+      android:fillColor="#00000000"
+      android:strokeColor="#ffffff"/>
+
+  <!-- Эффект свечения -->
+  <gradient
+      android:id="@+id/glow"
+      android:startColor="#FFFFFF"
+      android:endColor="#00FFFFFF"
+      android:type="radial"
+      android:centerX="50%"
+      android:centerY="50%"
+      android:gradientRadius="70%">
+  </gradient>
+</vector>
+
+
+

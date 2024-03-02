@@ -49,7 +49,7 @@ class StartSplashScreen : AppCompatActivity() {
         )
 
         scaleAnimation.duration = 2000
-        scaleAnimation.repeatCount = 3
+        scaleAnimation.repeatCount = 2
 
         loadIcon.startAnimation(scaleAnimation)
 
