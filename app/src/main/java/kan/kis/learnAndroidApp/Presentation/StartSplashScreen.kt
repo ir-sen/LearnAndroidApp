@@ -30,8 +30,12 @@ class StartSplashScreen : AppCompatActivity() {
         setContentView(R.layout.activity_start_splash_screen)
 //        Toast.makeText(this, "ProBobn.com!!!", Toast.LENGTH_SHORT).show()
         initElement()
-        initAnimate()
+//        initAnimate()
+
+        endAnimationL()
     }
+
+
 
     private fun initAnimate() {
 
@@ -47,9 +51,7 @@ class StartSplashScreen : AppCompatActivity() {
             Animation.RELATIVE_TO_SELF, 0.5f,  // Pivot point X (center)
             Animation.RELATIVE_TO_SELF, 0.5f   // Pivot point Y (center)
         )
-
         scaleAnimation.duration = 2000
-        scaleAnimation.repeatCount = 2
 
         loadIcon.startAnimation(scaleAnimation)
 
@@ -98,7 +100,7 @@ class StartSplashScreen : AppCompatActivity() {
     }
 
     private fun endAnimationL() {
-        val startScale = 2.0f // Initial scale factor
+        val startScale = 0f // Initial scale factor
         val endScale = 4.0f   // Final scale factor
 
 // Create the scale animation
@@ -111,8 +113,8 @@ class StartSplashScreen : AppCompatActivity() {
             Animation.RELATIVE_TO_SELF, 0.5f   // Pivot point Y (center)
         )
 
-        scaleAnimation.duration = 1000
-        scaleAnimation.repeatCount = 1
+        scaleAnimation.fillAfter = true
+        scaleAnimation.duration = 1500
 
         loadIcon.startAnimation(scaleAnimation)
 
@@ -122,6 +124,7 @@ class StartSplashScreen : AppCompatActivity() {
             }
 
             override fun onAnimationEnd(animation: Animation?) {
+
                 val intent = Intent(this@StartSplashScreen, MenuActivity::class.java)
                 startActivity(intent)
             }

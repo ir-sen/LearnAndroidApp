@@ -26,7 +26,7 @@ class ThreadsCardFragmentViewModel: ViewModel() {
     fun checkFirebaseDataBase(mutableList: MutableList<CardItem>): MutableList<CardItem> {
         database = Firebase.database.reference
         // just check all child in fire base and add to list
-        val myRef = database.child("libraries").get().addOnSuccessListener {
+        val myRef = database.child("threads").get().addOnSuccessListener {
             Log.d(TAG, "on success: ${it.child("item2")}")
             Log.d(TAG, "on success: ${it}")
             for (child in it.children) {

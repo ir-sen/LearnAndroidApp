@@ -37,8 +37,6 @@ class MenuActivity : AppCompatActivity() {
     private lateinit var database: DatabaseReference
 
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -64,10 +62,7 @@ class MenuActivity : AppCompatActivity() {
         builder.setView(view)
         builder.setCanceledOnTouchOutside(false)
         builder.show()
-
     }
-
-
 
 
 
@@ -131,8 +126,6 @@ class MenuActivity : AppCompatActivity() {
             comingSoonAlert()
         }
 
-
-
     }
 
     private fun comingSoonAlert() {
@@ -191,6 +184,10 @@ class MenuActivity : AppCompatActivity() {
                 return networkInfo.isConnected
             }
         }
+    }
+
+    override fun onBackPressed() {
+
     }
 
 }
